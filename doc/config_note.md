@@ -18,4 +18,6 @@
      安装完后 sass 报错，解决方案：
      npm cache clear --force
      npm install sass
-- 7.
+- 7. 配置 react-router：
+     安装 react-router：npm install react-router-dom
+     安装 react-router 的 ts 声明文件：npm i @types/react-router-dom -D
