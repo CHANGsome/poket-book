@@ -12,12 +12,31 @@
      运行 styled-components 相关代码报错，需要安装相关 babel：
      npm install --save-dev babel-plugin-styled-components
      配置 babel：新建 babel.config.json 文件，添加配置：
-     {
-     "plugins": ["babel-plugin-styled-components"]
-     }
+     ```javascript
+          {
+          "plugins": ["babel-plugin-styled-components"]
+          }
+     ```
      安装完后 sass 报错，解决方案：
      npm cache clear --force
      npm install sass
+- 7. 安装支持 styled-components 语法的 vscode 插件：vscode-styled-components
 - 7. 配置 react-router：
      安装 react-router：npm install react-router-dom
      安装 react-router 的 ts 声明文件：npm i @types/react-router-dom -D
+- 8. 引入 svg：
+     首先需要把 react 的配置文件弄出来：运行 npm run eject（这个命令是不可逆的，eject 了这些配置文件后就回不去了）
+     此时会产生 webpack 配置文件：config/webpack.config.js
+     安装 svg loader：
+     npm install svg-sprite-loader -D
+     npm install svgo-loader -D
+     在 webpack.config.js 里面添加 svg 的配置项：
+     ```javascript
+     {
+          test: /\.svg$/,
+          use: [
+               { loader: 'svg-sprite-loader', options: {} },
+               { loader: 'svgo-loader', options: {} },
+          ],
+     },
+     ```
