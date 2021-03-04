@@ -21,10 +21,10 @@
      npm cache clear --force
      npm install sass
 - 7. 安装支持 styled-components 语法的 vscode 插件：vscode-styled-components
-- 7. 配置 react-router：
+- 8. 配置 react-router：
      安装 react-router：npm install react-router-dom
      安装 react-router 的 ts 声明文件：npm i @types/react-router-dom -D
-- 8. 引入 svg：
+- 9. 引入 svg：
      首先需要把 react 的配置文件弄出来：运行 npm run eject（这个命令是不可逆的，eject 了这些配置文件后就回不去了）
      此时会产生 webpack 配置文件：config/webpack.config.js
      安装 svg loader：

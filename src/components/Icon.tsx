@@ -1,6 +1,7 @@
 require('icons/money.svg');
 require('icons/tag.svg');
 require('icons/chart.svg');
+
 type PropsType = {
   name: string;
 };
