@@ -40,3 +40,23 @@
           ],
      },
      ```
+
+## 笔记：
+
+- 1. 底部导航固定，顶部内容撑开怎么设置?
+     用 fix 布局，在手机端会有问题，这里用 flex 布局可以解决
+
+```javascript
+     <div className="container">
+          <div className="content">...</div>
+          <div className="nav">...</div>
+     </div>
+
+     .container{
+          display: flex;
+          min-height: 100vh;
+          > .content{
+               flex-grow: 1;
+          }
+     }
+```
