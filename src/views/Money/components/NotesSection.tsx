@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -19,11 +20,18 @@ const Wrapper = styled.section`
   }
 `;
 
-const NotesSection = () => {
+const NotesSection: React.FC = () => {
+  const [note, setNote] = useState<string>('');
   return (
     <Wrapper>
       <div className="label">标签</div>
-      <input placeholder="请填写备注" />
+      <input
+        placeholder="请填写备注"
+        value={note}
+        onChange={(e) => {
+          setNote(e.target.value);
+        }}
+      />
     </Wrapper>
   );
 };

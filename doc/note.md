@@ -60,3 +60,8 @@
           }
      }
 ```
+
+2. HTML 和 React 中的 input 标签 onChange 事件触发时机不一样
+
+- HTML onChange：在鼠标移走的时候触发，早于 onBlur
+- React onChange：在输入一个字的时候就触发
