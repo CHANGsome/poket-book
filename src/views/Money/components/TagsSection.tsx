@@ -28,10 +28,14 @@ const Wrapper = styled.section`
     outline: none;
   }
 `;
-
-const TagsSection: React.FC = () => {
+type TagsProps = {
+  tags: string[];
+  onChange: (tags: string[]) => void;
+};
+const TagsSection: React.FC<TagsProps> = (props) => {
   const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const { tags: selectedTags, onChange: setSelectedTags } = props;
+  // const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const onAddTags = () => {
     const newTag = window.prompt('新的标签名为');
     if (newTag !== null) {

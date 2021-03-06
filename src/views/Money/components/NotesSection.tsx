@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -19,9 +18,12 @@ const Wrapper = styled.section`
     padding: 5px;
   }
 `;
-
-const NotesSection: React.FC = () => {
-  const [note, setNote] = useState<string>('');
+type NoteProps = {
+  note: string;
+  onChange: (note: string) => void;
+};
+const NotesSection: React.FC<NoteProps> = (props) => {
+  const { note, onChange: setNote } = props;
   return (
     <Wrapper>
       <div className="label">标签</div>

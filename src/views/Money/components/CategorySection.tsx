@@ -20,12 +20,16 @@ const Wrapper = styled.section`
     }
   }
 `;
-
-const CategorySection: React.FC = () => {
+export type CategoryType = '-' | '+';
+type CategoryProps = {
+  category: CategoryType;
+  onChange: (category: CategoryType) => void;
+};
+const CategorySection: React.FC<CategoryProps> = (props) => {
   const categoryMap = { '-': '支出', '+': '收入' };
-  type Keys = keyof typeof categoryMap; // {'-':string;'+':string}
-  const [categoryList] = useState<Keys[]>(['-', '+']);
-  const [category, setCategory] = useState<string>('-');
+  // type Keys = keyof typeof categoryMap; // {'-':string;'+':string}
+  const [categoryList] = useState<CategoryType[]>(['-', '+']);
+  const { category, onChange: setCategory } = props;
   return (
     <Wrapper>
       <ul>

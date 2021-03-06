@@ -54,9 +54,13 @@ const Wrapper = styled.section`
     }
   }
 `;
-
-const NumberPadSection: React.FC = () => {
-  const [output, _setOutput] = useState<string>('0');
+type NumberPadProps = {
+  amount: number;
+  onChange: (amount: number) => void;
+};
+const NumberPadSection: React.FC<NumberPadProps> = (props) => {
+  const { amount, onChange } = props;
+  const [output, _setOutput] = useState<string>(amount.toString());
   const setOutput = (text: string) => {
     if (text.length <= 20) {
       _setOutput(text);
@@ -86,7 +90,7 @@ const NumberPadSection: React.FC = () => {
           setOutput('0');
           break;
         case 'OK':
-          console.log('ok');
+          onChange(parseFloat(output));
       }
     }
   };
