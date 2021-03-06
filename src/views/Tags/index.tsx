@@ -1,6 +1,6 @@
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
-import useTags from 'hooks/setTags';
+import useTags from 'hooks/useTags';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -39,7 +39,7 @@ const Button = styled.button`
   border-radius: 6px;
 `;
 const Tags: React.FC = () => {
-  const { tags, setTags } = useTags();
+  const { tags } = useTags();
   return (
     <Layout>
       <List>

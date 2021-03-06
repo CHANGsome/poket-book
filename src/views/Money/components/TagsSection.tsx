@@ -1,4 +1,4 @@
-import useTags from 'hooks/setTags';
+import useTags from 'hooks/useTags';
 import styled from 'styled-components';
 import createId from 'utils/createId';
 
