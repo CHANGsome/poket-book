@@ -12,14 +12,14 @@ const MoneyLayout = styled(Layout)`
 `;
 
 type MoneyProps = {
-  tags: string[];
+  tagIds: number[];
   note: string;
   category: CategoryType;
   amount: number;
 };
 const Money: React.FC = () => {
   const [selectedData, setSelectedData] = useState<MoneyProps>({
-    tags: [],
+    tagIds: [],
     note: '',
     category: '-',
     amount: 0,
@@ -33,9 +33,9 @@ const Money: React.FC = () => {
   return (
     <MoneyLayout>
       <TagsSection
-        tags={selectedData.tags}
-        onChange={(tags) => {
-          onChangeData({ tags });
+        tagIds={selectedData.tagIds}
+        onChange={(tagIds) => {
+          onChangeData({ tagIds });
         }}
       />
       <NotesSection

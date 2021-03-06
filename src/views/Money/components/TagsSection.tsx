@@ -27,37 +27,37 @@ const Wrapper = styled.section`
   }
 `;
 type TagsProps = {
-  tags: string[];
-  onChange: (tags: string[]) => void;
+  tagIds: number[];
+  onChange: (tags: number[]) => void;
 };
 const TagsSection: React.FC<TagsProps> = (props) => {
   const { tags, setTags } = useTags();
-  const { tags: selectedTags, onChange: setSelectedTags } = props;
+  const { tagIds: selectedTagIds, onChange: setSelectedTags } = props;
   const onAddTags = () => {
     const newTag = window.prompt('新的标签名为');
     if (newTag !== null) {
-      setTags([...tags, newTag]);
+      setTags([...tags, { id: tags.length + 1, name: newTag }]);
     }
   };
-  const onToggleTags = (tag: string) => {
-    if (selectedTags.indexOf(tag) >= 0) {
-      setSelectedTags(selectedTags.filter((item: string) => item !== tag));
+  const onToggleTags = (tagId: number) => {
+    if (selectedTagIds.indexOf(tagId) >= 0) {
+      setSelectedTags(selectedTagIds.filter((item: number) => item !== tagId));
     } else {
-      setSelectedTags([...selectedTags, tag]);
+      setSelectedTags([...selectedTagIds, tagId]);
     }
   };
   return (
     <Wrapper>
       <ol>
-        {tags.map((tag, index) => (
+        {tags.map((tag) => (
           <li
-            key={index}
+            key={tag.id}
             onClick={() => {
-              onToggleTags(tag);
+              onToggleTags(tag.id);
             }}
-            className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}
+            className={selectedTagIds.indexOf(tag.id) >= 0 ? 'selected' : ''}
           >
-            {tag}
+            {tag.name}
           </li>
         ))}
       </ol>
