@@ -5,10 +5,11 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import Tags from 'views/Tags';
+import Tags from 'views/Tags/index';
 import Money from 'views/Money/index';
 import Statistics from 'views/Statistics';
 import NoMatch from 'views/NoMatch';
+import TagDetail from 'views/Tags/TagDetail';
 
 export default function App() {
   return (
@@ -17,13 +18,16 @@ export default function App() {
         <Route exact path="/">
           <Redirect to="/money" />
         </Route>
-        <Route path="/tags">
+        <Route exact path="/tags">
           <Tags />
         </Route>
-        <Route path="/money">
+        <Route exact path="/tags/:tag">
+          <TagDetail />
+        </Route>
+        <Route exact path="/money">
           <Money />
         </Route>
-        <Route path="/statistics">
+        <Route exact path="/statistics">
           <Statistics />
         </Route>
         <Route path="*">

@@ -11,7 +11,6 @@ const Wrapper = styled.section`
     padding: 0 20px;
   }
   > input {
-    outline: none;
     border: none;
     background-color: inherit;
     flex: 1;

@@ -32,13 +32,6 @@ const Money: React.FC = () => {
   };
   return (
     <MoneyLayout>
-      {selectedData.tags.map((t) => t)}
-      <hr />
-      {selectedData.note}
-      <hr />
-      {selectedData.category}
-      <hr />
-      {selectedData.amount}
       <TagsSection
         tags={selectedData.tags}
         onChange={(tags) => {

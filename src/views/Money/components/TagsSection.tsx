@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import useTags from 'hooks/setTags';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -21,11 +21,9 @@ const Wrapper = styled.section`
     margin: 10px;
     border: none;
     color: #999;
-    background-color: #fff;
     font-size: 16px;
     border-bottom: 1px solid #111;
     letter-spacing: 1px;
-    outline: none;
   }
 `;
 type TagsProps = {
@@ -33,9 +31,8 @@ type TagsProps = {
   onChange: (tags: string[]) => void;
 };
 const TagsSection: React.FC<TagsProps> = (props) => {
-  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const { tags, setTags } = useTags();
   const { tags: selectedTags, onChange: setSelectedTags } = props;
-  // const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const onAddTags = () => {
     const newTag = window.prompt('新的标签名为');
     if (newTag !== null) {

@@ -17,7 +17,6 @@ const Wrapper = styled.section`
       width: 25%;
       height: 64px;
       font-size: 16px;
-      outline: none;
       &.ok {
         height: 128px;
         float: right;
