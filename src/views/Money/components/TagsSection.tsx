@@ -1,5 +1,6 @@
 import useTags from 'hooks/setTags';
 import styled from 'styled-components';
+import createId from 'utils/createId';
 
 const Wrapper = styled.section`
   flex-grow: 1;
@@ -36,7 +37,7 @@ const TagsSection: React.FC<TagsProps> = (props) => {
   const onAddTags = () => {
     const newTag = window.prompt('新的标签名为');
     if (newTag !== null) {
-      setTags([...tags, { id: tags.length + 1, name: newTag }]);
+      setTags([...tags, { id: createId(), name: newTag }]);
     }
   };
   const onToggleTags = (tagId: number) => {

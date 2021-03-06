@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import createId from 'utils/createId';
 
 export type TagType = {
   id: number;
@@ -6,10 +7,10 @@ export type TagType = {
 };
 const useTags = () => {
   const [tags, setTags] = useState<TagType[]>([
-    { id: 1, name: '衣' },
-    { id: 2, name: '食' },
-    { id: 3, name: '住' },
-    { id: 4, name: '行' },
+    { id: createId(), name: '衣' },
+    { id: createId(), name: '食' },
+    { id: createId(), name: '住' },
+    { id: createId(), name: '行' },
   ]);
   return { tags, setTags };
 };
