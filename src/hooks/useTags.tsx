@@ -13,6 +13,7 @@ export type TagType = {
 };
 const useTags = () => {
   const [tags, setTags] = useState<TagType[]>(defaultTags);
-  return { tags, setTags };
+  const findTag = (id: number) => tags.filter((item) => item.id === id)[0];
+  return { tags, setTags, findTag };
 };
 export default useTags;
