@@ -5,7 +5,7 @@ import Input from 'components/Input';
 import Layout from 'components/Layout';
 import useTags from 'hooks/useTags';
 import React from 'react';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -33,19 +33,38 @@ type PramasType = {
 };
 const TagDetail: React.FC = () => {
   const { id } = useParams<PramasType>();
-  const { findTag } = useTags();
+  const { findTag, updatTag, deleteTag } = useTags();
   const currentTag = findTag(parseInt(id));
+  const history = useHistory();
   return (
     <Layout>
       <Header>
-        <Icon name="left" />
+        <Icon
+          name="left"
+          onClick={() => {
+            history.goBack();
+          }}
+        />
         <span>编辑标签</span>
       </Header>
       <InputWrapper>
-        <Input label="标签名" value={currentTag.name} placeholder="标签名" />
+        <Input
+          label="标签名"
+          value={currentTag?.name || ''}
+          placeholder="标签名"
+          onChange={(e) => {
+            updatTag(currentTag.id, e.target.value);
+          }}
+        />
       </InputWrapper>
       <Center>
-        <Button>删除标签</Button>
+        <Button
+          onClick={() => {
+            deleteTag(currentTag.id);
+          }}
+        >
+          删除标签
+        </Button>
       </Center>
     </Layout>
   );

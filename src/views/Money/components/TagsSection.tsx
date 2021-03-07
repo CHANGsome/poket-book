@@ -1,6 +1,5 @@
 import useTags from 'hooks/useTags';
 import styled from 'styled-components';
-import createId from 'utils/createId';
 
 const Wrapper = styled.section`
   flex-grow: 1;
@@ -33,14 +32,8 @@ type TagsProps = {
   onChange: (tags: number[]) => void;
 };
 const TagsSection: React.FC<TagsProps> = (props) => {
-  const { tags, setTags } = useTags();
+  const { tags, addTag } = useTags();
   const { tagIds: selectedTagIds, onChange: setSelectedTags } = props;
-  const onAddTags = () => {
-    const newTag = window.prompt('新的标签名为');
-    if (newTag !== null) {
-      setTags([...tags, { id: createId(), name: newTag }]);
-    }
-  };
   const onToggleTags = (tagId: number) => {
     if (selectedTagIds.indexOf(tagId) >= 0) {
       setSelectedTags(selectedTagIds.filter((item: number) => item !== tagId));
@@ -63,7 +56,7 @@ const TagsSection: React.FC<TagsProps> = (props) => {
           </li>
         ))}
       </ol>
-      <button onClick={onAddTags}>新增标签</button>
+      <button onClick={addTag}>新增标签</button>
     </Wrapper>
   );
 };

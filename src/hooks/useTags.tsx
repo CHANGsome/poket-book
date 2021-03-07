@@ -13,7 +13,20 @@ export type TagType = {
 };
 const useTags = () => {
   const [tags, setTags] = useState<TagType[]>(defaultTags);
+
   const findTag = (id: number) => tags.filter((item) => item.id === id)[0];
-  return { tags, setTags, findTag };
+  const addTag = () => {
+    const newTag = window.prompt('新的标签名为');
+    if (newTag !== null && newTag !== '') {
+      setTags([...tags, { id: createId(), name: newTag }]);
+    }
+  };
+  const updatTag = (id: number, name: string) => {
+    setTags(tags.map((tag) => (tag.id === id ? { id, name } : tag)));
+  };
+  const deleteTag = (id: number) => {
+    setTags(tags.filter((tag) => tag.id !== id));
+  };
+  return { tags, setTags, findTag, addTag, updatTag, deleteTag };
 };
 export default useTags;
