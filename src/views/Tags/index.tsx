@@ -1,3 +1,5 @@
+import Button from 'components/Button';
+import Center from 'components/Center';
 import Icon from 'components/Icon';
 import Layout from 'components/Layout';
 import useTags from 'hooks/useTags';
@@ -24,20 +26,7 @@ const List = styled.ol`
     }
   }
 `;
-const Center = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Button = styled.button`
-  margin-top: 24px;
-  border: none;
-  font-size: 18px;
-  color: #fff;
-  background-color: #f60;
-  padding: 8px 12px;
-  border-radius: 6px;
-`;
+
 const Tags: React.FC = () => {
   const { tags } = useTags();
   return (

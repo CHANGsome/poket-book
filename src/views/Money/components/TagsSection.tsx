@@ -5,6 +5,7 @@ import createId from 'utils/createId';
 const Wrapper = styled.section`
   flex-grow: 1;
   padding: 10px;
+  background-color: #fefefe;
   > ol {
     > li {
       display: inline-block;
