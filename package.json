@@ -2,7 +2,7 @@
   "name": "pocket-book",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/CHANGsome/poket-book/build",
+  "homepage": "https://CHANGsome.github.io/poket-book",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
