@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Nav from './Nav';
 
 const Wrapper = styled.div`
-  max-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 `;
