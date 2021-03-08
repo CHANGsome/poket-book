@@ -56,16 +56,17 @@ const Wrapper = styled.section`
 type NumberPadProps = {
   amount: number;
   onChange: (amount: number) => void;
+  onOk: () => void;
 };
 const NumberPadSection: React.FC<NumberPadProps> = (props) => {
-  const { amount, onChange } = props;
+  const { amount, onChange, onOk } = props;
   const [output, _setOutput] = useState<string>(amount.toString());
   const setOutput = (text: string) => {
-    if (text.length <= 20) {
-      _setOutput(text);
-    } else {
-      _setOutput(text.slice(0, 20));
+    if (text.length > 20) {
+      text = text.slice(0, 20);
     }
+    _setOutput(text);
+    onChange(parseFloat(text));
   };
   const handleClickButton = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent || '';
@@ -89,7 +90,7 @@ const NumberPadSection: React.FC<NumberPadProps> = (props) => {
           setOutput('0');
           break;
         case 'OK':
-          onChange(parseFloat(output));
+          onOk();
       }
     }
   };

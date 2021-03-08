@@ -5,33 +5,49 @@ import NotesSection from './components/NotesSection';
 import CategorySection, { CategoryType } from './components/CategorySection';
 import NumberPadSection from './components/NumberPadSection';
 import styled from 'styled-components';
+import useRecords from 'hooks/useRecords';
 
 const MoneyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `;
 
-type MoneyProps = {
+export type MoneyProps = {
   tagIds: number[];
   note: string;
   category: CategoryType;
   amount: number;
+  createdAt?: string;
+};
+const defaultRecord: MoneyProps = {
+  tagIds: [],
+  note: '',
+  category: '-',
+  amount: 0,
 };
 const Money: React.FC = () => {
-  const [selectedData, setSelectedData] = useState<MoneyProps>({
-    tagIds: [],
-    note: '',
-    category: '-',
-    amount: 0,
-  });
+  const [selectedData, setSelectedData] = useState<MoneyProps>(defaultRecord);
+  const { addRecord } = useRecords();
   const onChangeData = (obj: Partial<MoneyProps>) => {
     setSelectedData({
       ...selectedData,
       ...obj,
     });
   };
+  const submit = () => {
+    if (selectedData.amount <= 0) {
+      return alert('不能为0');
+    }
+    if (selectedData.tagIds.length === 0) {
+      return alert('一定要选标签');
+    }
+    addRecord({ ...selectedData, createdAt: new Date().toISOString() });
+    alert('保存成功');
+    setSelectedData(defaultRecord);
+  };
   return (
     <MoneyLayout>
+      {JSON.stringify(selectedData)}
       <TagsSection
         tagIds={selectedData.tagIds}
         onChange={(tagIds) => {
@@ -53,6 +69,7 @@ const Money: React.FC = () => {
         onChange={(amount) => {
           onChangeData({ amount });
         }}
+        onOk={submit}
       />
     </MoneyLayout>
   );
