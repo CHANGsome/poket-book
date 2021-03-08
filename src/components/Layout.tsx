@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import Nav from './Nav';
 
 const Wrapper = styled.div`
-  height: 100vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 const Main = styled.div`
   flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
 `;
 const Layout = (props: any) => {
   return (

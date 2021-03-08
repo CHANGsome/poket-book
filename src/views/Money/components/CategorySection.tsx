@@ -1,22 +1,20 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.section`
-  > ul {
-    display: flex;
-    background-color: #bbb;
-    font-size: 18px;
-    line-height: 60px;
-    > li {
-      flex: 1;
-      text-align: center;
-      &.selected::after {
-        content: '';
-        display: block;
-        width: 100%;
-        background-color: #333;
-        height: 2px;
-      }
+const CategoryUl = styled.ul`
+  display: flex;
+  background-color: inherit;
+  font-size: 18px;
+  line-height: 60px;
+  > li {
+    flex: 1;
+    text-align: center;
+    &.selected::after {
+      content: '';
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 2px;
     }
   }
 `;
@@ -31,21 +29,19 @@ const CategorySection: React.FC<CategoryProps> = (props) => {
   const [categoryList] = useState<CategoryType[]>(['-', '+']);
   const { category, onChange: setCategory } = props;
   return (
-    <Wrapper>
-      <ul>
-        {categoryList.map((c) => (
-          <li
-            className={c === category ? 'selected' : ''}
-            key={c}
-            onClick={() => {
-              setCategory(c);
-            }}
-          >
-            {categoryMap[c]}
-          </li>
-        ))}
-      </ul>
-    </Wrapper>
+    <CategoryUl>
+      {categoryList.map((c) => (
+        <li
+          className={c === category ? 'selected' : ''}
+          key={c}
+          onClick={() => {
+            setCategory(c);
+          }}
+        >
+          {categoryMap[c]}
+        </li>
+      ))}
+    </CategoryUl>
   );
 };
 export default CategorySection;

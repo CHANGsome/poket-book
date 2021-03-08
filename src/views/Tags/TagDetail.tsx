@@ -60,7 +60,8 @@ const TagDetail: React.FC = () => {
       <Center>
         <Button
           onClick={() => {
-            deleteTag(currentTag.id);
+            deleteTag(currentTag!.id);
+            window.history.back();
           }}
         >
           删除标签

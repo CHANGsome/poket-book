@@ -11,7 +11,9 @@ const MoneyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `;
-
+const CategoryWrapper = styled.div`
+  background-color: #bbb;
+`;
 export type MoneyProps = {
   tagIds: number[];
   note: string;
@@ -47,7 +49,6 @@ const Money: React.FC = () => {
   };
   return (
     <MoneyLayout>
-      {JSON.stringify(selectedData)}
       <TagsSection
         tagIds={selectedData.tagIds}
         onChange={(tagIds) => {
@@ -58,12 +59,14 @@ const Money: React.FC = () => {
         note={selectedData.note}
         onChange={(note) => onChangeData({ note })}
       />
-      <CategorySection
-        category={selectedData.category}
-        onChange={(category) => {
-          onChangeData({ category });
-        }}
-      />
+      <CategoryWrapper>
+        <CategorySection
+          category={selectedData.category}
+          onChange={(category) => {
+            onChangeData({ category });
+          }}
+        />
+      </CategoryWrapper>
       <NumberPadSection
         amount={selectedData.amount}
         onChange={(amount) => {

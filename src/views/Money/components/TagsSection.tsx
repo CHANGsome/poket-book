@@ -5,6 +5,8 @@ const Wrapper = styled.section`
   flex-grow: 1;
   padding: 10px;
   background-color: #fefefe;
+  flex-shrink: 1;
+  overflow: auto;
   > ol {
     > li {
       display: inline-block;
