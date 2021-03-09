@@ -65,3 +65,17 @@
 
 - HTML onChange：在鼠标移走的时候触发，早于 onBlur
 - React onChange：在输入一个字的时候就触发
+
+## 项目部署
+
+- 1. 运行 yarn build，得到 build 目录
+- 2. 新建分支 build，将 build 目录的内容上传到新分支
+- 3. 在 package.json 里添加 homepage
+
+## 添加脚本：每次修改的时候重新 build 很麻烦，写一个脚本将命令都写进去，重新部署的时候执行脚本就好了
+
+- 在 scripts 目录下建立脚本 deploy.sh
+- 在脚本文件 deploy.sh 里添加 shebang：#!/usr/bin/env bash
+- 将命令都写到脚本里，命令与命令之间用&&分隔，保证上一个命令成功再执行下一个
+- 给脚本文件添加可执行权限：chmod -X script/deploy.sh
+- 运行脚本：sh scripts/deploy.sh

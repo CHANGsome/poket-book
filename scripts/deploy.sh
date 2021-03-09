@@ -3,7 +3,7 @@
 yarn build &&
 cd build &&
 git init &&
-git add. &&
+git add . &&
 git commit -m "deploy" &&
 git branch build &&
 git checkout build &&
