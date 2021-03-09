@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/poket-book/static/css/main.03cbdd7f.chunk.css",
+    "main.js": "/poket-book/static/js/main.8a1a12df.chunk.js",
+    "main.js.map": "/poket-book/static/js/main.8a1a12df.chunk.js.map",
+    "runtime-main.js": "/poket-book/static/js/runtime-main.f3cdb16c.js",
+    "runtime-main.js.map": "/poket-book/static/js/runtime-main.f3cdb16c.js.map",
+    "static/js/2.97cdcfe4.chunk.js": "/poket-book/static/js/2.97cdcfe4.chunk.js",
+    "static/js/2.97cdcfe4.chunk.js.map": "/poket-book/static/js/2.97cdcfe4.chunk.js.map",
+    "static/js/3.af22ca50.chunk.js": "/poket-book/static/js/3.af22ca50.chunk.js",
+    "static/js/3.af22ca50.chunk.js.map": "/poket-book/static/js/3.af22ca50.chunk.js.map",
+    "index.html": "/poket-book/index.html",
+    "static/css/main.03cbdd7f.chunk.css.map": "/poket-book/static/css/main.03cbdd7f.chunk.css.map",
+    "static/js/2.97cdcfe4.chunk.js.LICENSE.txt": "/poket-book/static/js/2.97cdcfe4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3cdb16c.js",
+    "static/js/2.97cdcfe4.chunk.js",
+    "static/css/main.03cbdd7f.chunk.css",
+    "static/js/main.8a1a12df.chunk.js"
+  ]
+}
